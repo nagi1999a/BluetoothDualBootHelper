@@ -1,4 +1,4 @@
-# BluetoothDualBootHelper
+# Bluetooth Dual Boot Helper
 ## Introduction
 When someone want to dual boot Windows and Linux, and use Bluetooth mouse or headset/speaker, it will not cannect at both side because of the pair key inconsistence between Windows and Linux System. Addtional to original solution, the script create a simple GUI interface with whiptail/dialog to help user copy windows key to linux.
 
