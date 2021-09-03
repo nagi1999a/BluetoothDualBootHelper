@@ -20,7 +20,7 @@ fi
 # Check chntpw Exist
 if [ "$(which chntpw)" = "" ]
 then
-  echo "Please install chntpw first!"
+  echo "Please install chntpw first!" >&2
   exit 1
 fi
 
@@ -35,7 +35,7 @@ dialogSelect()
     echo "dialog"
     return 0
   else
-    echo "Please install whiptail or dialog first!"
+    echo "Please install whiptail or dialog first!" >&2
     immediateStop
   fi
 }
@@ -74,6 +74,15 @@ deviceSelect()
   fi
 }
 
+keyCheckBox()
+{
+  whiptail --title "$TITLE" --yesno "The Key will change from\n\n$1\n\nto\n\n$2\n\nProceed?" 0 0 3>&1 1>&2 2>&3
+  if [ "$?" != "0" ]
+  then
+    immediateStop
+  fi
+}
+
 finalCheckBox()
 {
   whiptail --title "$TITLE" --yesno "Is this result resonable?\n\n$(cat $1)" 0 0 3>&1 1>&2 2>&3
@@ -97,12 +106,21 @@ TARGET_DEVICE_MAC=$(echo "$TARGET_DEVICE" | tr -d ':' | tr '[:upper:]' '[:lower:
 reged -x "$WIN_DIR/System32/config/SYSTEM" "\\" "ControlSet001\\Services\\BTHPORT\\Parameters\\Keys\\$TARGET_ADAPTER_MAC" "$TMP_FILE" > /dev/null
 if [ "$?" != "0" ]
 then
-  echo "Registry Export Failed, Wrong <WINDOWS_DIRECTORY> ?"
+  echo "Registry Export Failed, Wrong <WINDOWS_DIRECTORY> ?" >&2
   exit 1
 fi
 
 # Find Key
-WIN_KEY=$(cat "$TMP_FILE" | grep "$TARGET_DEVICE_MAC" | cut -d':' -f2 | tr -d ',\r\n')
+WIN_KEY=$(cat "$TMP_FILE" | grep "$TARGET_DEVICE_MAC" | cut -d':' -f2 | tr -d ',\r\n' | tr '[:lower:]' '[:upper:]')
+LINUX_KEY=$(cat "$BLUETOOTH_DIR/$TARGET_ADAPTER/$TARGET_DEVICE/info" | grep -e '^Key=.*' | cut -d'=' -f2)
+if [ "$WIN_KEY" = "" ]
+then
+  echo "Key not found on your Windows system, is the device paired?" >&2
+  exit 1
+fi
+
+# Check Key
+keyCheckBox "$LINUX_KEY" "$WIN_KEY"
 
 # Replace Key
 TMP_INFO=$(mktemp)
@@ -115,6 +133,6 @@ if [ "$?" = "0" ]
 then
   echo "Finished Successfully"
 else
-  echo "Move Failed"
+  echo "Move Failed" >&2
   exit 1
 fi
