@@ -1,6 +1,6 @@
 # Bluetooth Dual Boot Helper
 ## Introduction
-When someone want to dual boot Windows and Linux, and use Bluetooth mouse or headset/speaker, it will not cannect at both side because of the pair key inconsistence between Windows and Linux System. Addtional to original solution, the script create a simple GUI interface with whiptail/dialog to help user copy windows key to linux.
+When someone want to dual boot Windows and Linux, and use Bluetooth mouse or headset/speaker, it will not connect at both side because of the pair key inconsistence between Windows and Linux System. Addtional to original solution, the script create a simple GUI interface with whiptail/dialog to help user copy windows key to linux.
 
 - Most logic taken from [here](https://gist.github.com/madkoding/f3cfd3742546d5c99131fd19ca267fd4)
 - Immediate break taken from [here](https://stackoverflow.com/questions/9893667/is-there-a-way-to-write-a-bash-function-which-aborts-the-whole-execution-no-mat)
@@ -10,7 +10,7 @@ When someone want to dual boot Windows and Linux, and use Bluetooth mouse or hea
 - Windows 10 21H1
 
 ## Command Line Usage
-**The script need root privilege to modify key stored in /var/lib/bluetooth, so please run with sudo**  
+**The script need root privilege to modify the key stored in /var/lib/bluetooth, so please run with sudo**  
 
 sudo ./helper.sh <WINDOWS_DIRECTORY>
 
