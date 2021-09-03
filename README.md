@@ -35,4 +35,5 @@ ex. ./helper.sh /mnt/win/Windows
 ## Screenshot
 ![Screenshot_20210902_145424](https://user-images.githubusercontent.com/49529145/131796908-3408a969-4645-453e-8cf4-6c76d71e1762.png)
 ![Screenshot_20210902_144712](https://user-images.githubusercontent.com/49529145/131796903-4ff7e4f8-6410-46a7-acf8-22966928df7d.png)
-![Screenshot_20210902_144738](https://user-images.githubusercontent.com/49529145/131796907-51b835ec-1131-4156-9eec-f209b50b92e8.png)
+![Screenshot_20210903_141353](https://user-images.githubusercontent.com/49529145/131959656-9e413ede-8ed2-4823-ade7-d8364373105e.png)
+![Screenshot_20210903_142236](https://user-images.githubusercontent.com/49529145/131959840-f4fbb838-f7fa-48a1-a7f3-0ba7b44522aa.png)
