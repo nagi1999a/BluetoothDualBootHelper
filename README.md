@@ -10,9 +10,11 @@ When someone want to dual boot Windows and Linux, and use Bluetooth mouse or hea
 - Windows 10 21H1
 
 ## Command Line Usage
-./helper.sh <WINDOWS_DIRECTORY>
+**The script need root privilege to modify key stored in /var/lib/bluetooth, so please run with sudo**  
 
-ex. ./helper.sh /mnt/win/Windows
+sudo ./helper.sh <WINDOWS_DIRECTORY>
+
+ex. sudo ./helper.sh /mnt/win/Windows
 
 ## Usage
 **This Instruction is for ubuntu based system, others distro will not work!**
@@ -29,7 +31,7 @@ ex. ./helper.sh /mnt/win/Windows
   ```
 6. execute `helper.sh`
   ```
-  ./helper.sh /mnt/win/Windows
+  sudo ./helper.sh /mnt/win/Windows
   ```
 
 ## Screenshot
