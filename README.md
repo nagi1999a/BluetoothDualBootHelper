@@ -21,7 +21,7 @@ ex. sudo ./helper.sh /mnt/win/Windows
 1. Pair device in Linux
 2. Pair device in Windows
 3. Back to Linux
-4. Install ntchpw
+4. Install chntpw
   ```
   sudo apt install chntpw
   ```
